@@ -11,6 +11,9 @@
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
 function createDivWithText(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div;
 }
 
 /*
@@ -22,6 +25,9 @@ function createDivWithText(text) {
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
+  const div = what;
+  const el = where;
+  where.prepend(what);
 }
 
 /*
@@ -44,6 +50,15 @@ function prepend(what, where) {
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
 function findAllPSiblings(where) {
+  let array = [];
+  for (let i = 0; i < where.children.length; i++) {
+    const el = where.children[i];
+    console.log(1, el);
+    if (el == 'HTMLParagraphElement') {
+      array.push[where.previousElemementSibling];
+    }
+  }
+  return array;
 }
 
 /*
@@ -85,8 +100,7 @@ function findError(where) {
    После выполнения функции, дерево <div></div>привет<p></p>loftchool!!!
    должно быть преобразовано в <div></div><p></p>
  */
-function deleteTextNodes(where) {
-}
+function deleteTextNodes(where) {}
 
 /*
  Задание 6 *:
@@ -108,8 +122,7 @@ function deleteTextNodes(where) {
      texts: 3
    }
  */
-function collectDOMStat(root) {
-}
+function collectDOMStat(root) {}
 
 export {
   createDivWithText,
