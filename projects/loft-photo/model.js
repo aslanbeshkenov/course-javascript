@@ -10,12 +10,13 @@ export default {
   },
 
   getNextPhoto() {
-    const randomFriend = parseInt(Math.random() * (friendsDB.length - 1));
-    const randomNumber = parseInt(Math.random() * randomFriend);
+    const randomFriend = this.getRandomElement(friendsDB);
+    const photos = photosDB[randomFriend.id];
+    const randomPhoto = this.getRandomElement(photos);
 
     return {
-      friend: friendsDB[randomFriend].firstName,
-      url: photosDB[randomFriend][randomNumber].url,
+      friend: randomFriend,
+      url: randomPhoto.url,
     };
   },
 };
