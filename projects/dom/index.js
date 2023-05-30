@@ -25,8 +25,6 @@ function createDivWithText(text) {
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
-  const div = what;
-  const el = where;
   where.prepend(what);
 }
 
@@ -51,13 +49,15 @@ function prepend(what, where) {
  */
 function findAllPSiblings(where) {
   let array = [];
+
   for (let i = 0; i < where.children.length; i++) {
     const el = where.children[i];
-    console.log(1, el);
-    if (el == 'HTMLParagraphElement') {
-      array.push[where.previousElemementSibling];
+
+    if (el.nextElementSibling && el.nextElementSibling.tagname === 'P') {
+      array.push(el);
     }
   }
+
   return array;
 }
 
@@ -81,7 +81,7 @@ function findAllPSiblings(where) {
 function findError(where) {
   const result = [];
 
-  for (const child of where.childNodes) {
+  for (const child of where.children) {
     result.push(child.textContent);
   }
 
